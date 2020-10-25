@@ -25,7 +25,7 @@ az ad app permission grant --id $serverApplicationId --api 00000003-0000-0000-c0
 az ad app permission admin-consent --id  $serverApplicationId
 
 #create AD client app
-clientApplicationId=$(az ad app create --display-name "${aksname}Client" --native-app --reply-urls "https://${aksname}Client" --query appId -o tsv)
+clientApplicationId=$(az ad app create --display-name aksappidclient --native-app --reply-urls https://aksappidclient --query appId -o tsv)
     
 az ad sp create --id $clientApplicationId
 
