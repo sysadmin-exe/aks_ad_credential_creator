@@ -39,3 +39,8 @@ export TF_VAR_client_app_id=$(echo $clientApplicationId)
 export TF_VAR_server_app_id=$(echo $serverApplicationId)
 export TF_VAR_server_app_secret=$(echo $serverApplicationSecret)
 export TF_VAR_tenant_id=$(az account show --query tenantId -o tsv)
+
+az ad app permission admin-consent --id  $serverApplicationId
+
+az ad app permission grant --id $clientApplicationId --api $serverApplicationId
+
